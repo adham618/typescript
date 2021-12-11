@@ -1,41 +1,9 @@
 import { Invoice } from "./classes/invoice.js";
+import { ListTemplate } from "./classes/ListTemplate.js";
 import { Payment } from "./classes/Payment.js";
-// let docOne: HasFormatter
-// let docTwo: HasFormatter
-// docOne = new Invoice("yoshi", "web work", 250)
-// docTwo = new Payment("mario", "plamming work", 200)
-// let docs: HasFormatter[] = []
-// docs.push(docOne)
-// docs.push(docTwo)
-// console.log(docs)
-// interfaces
-// interface IsPerson{
-//   name: string
-//   age: number
-//   speak(a: string): void
-//   spend(a: number): number
-// }
-// const me: IsPerson = {
-//   name: 'adham',
-//   age: 23,
-//   speak(text: string): void{
-//     console.log(text)
-//   },
-//   spend(amount: number): number{
-//     console.log('i spent', amount)
-//     return amount
-//   }
-// }
-// const greetPerson = (person: IsPerson): void => {
-//   console.log('hello ', person.name);
-// }
-// greetPerson(me);
-// const inVone = new Invoice("adam", "works on the adams website", 250)
-// let invoices: Invoice[] = []
-// invoices.push(inVone)
-// invoices.forEach(inv => {
-//   console.log(inv.client,inv.amount,inv.format())
-// })
+// list template instance
+const ul = document.querySelector("ul");
+const list = new ListTemplate(ul);
 const form = document.querySelector('.new-item-form');
 // inputs
 const type = document.querySelector('#type');
@@ -51,5 +19,5 @@ form.addEventListener('submit', (e) => {
     else {
         doc = new Payment(tofrom.value, details.value, amount.valueAsNumber);
     }
-    console.log(doc);
+    list.render(doc, type.value, 'end');
 });
