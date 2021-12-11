@@ -26,7 +26,7 @@ let invoices: Invoice[] = []
 invoices.push(inVone)
 
 invoices.forEach(inv => {
-  console.log(inv.client, inv.details ,inv.amount,inv.format())
+  console.log(inv.client,inv.amount,inv.format())
 })
 
 const form = document.querySelector('.new-item-form') as HTMLFormElement
