@@ -1,12 +1,18 @@
 class Invoice{
-  client: string
-  details: string
-  amount: number
+  // client: string
+  // details: string
+  // amount: number
 
-  constructor(c: string, d: string, a: number) {
-    this.client = c
-    this.details = d
-    this.amount = a
+  constructor(
+    // c: string, d: string, a: number
+    readonly client: string,
+    private details: string,
+    public amount: number,
+    
+  ) {
+    // this.client = c
+    // this.details = d
+    // this.amount = a
   }
   format() {
     return `${this.client} owes $${this.amount} for ${this.details}`
@@ -15,7 +21,13 @@ class Invoice{
 
 const inVone = new Invoice("adam", "works on the adams website", 250)
 
-console.log(inVone)
+
+let invoices: Invoice[] = []
+invoices.push(inVone)
+
+invoices.forEach(inv => {
+  console.log(inv.client, inv.details ,inv.amount,inv.format())
+})
 
 const form = document.querySelector('.new-item-form') as HTMLFormElement
 // inputs
